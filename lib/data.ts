@@ -9,6 +9,7 @@ export const getItems = async (prisma, type) => {
 export const getItem = async (prisma, id) => {
   const item = await prisma.item.findUnique({
     where: { id },
+    include: { reviews: true },
   });
   return item;
 };
