@@ -21,6 +21,7 @@ model User {
   updatedAt     DateTime  @updatedAt
   accounts      Account[]
   sessions      Session[]
+  isAdmin       Boolean   @default(false)
 }
 
 model VerificationToken {
@@ -58,4 +59,12 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Item {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  type        String
+  rating      Int
 }

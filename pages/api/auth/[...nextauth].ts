@@ -33,6 +33,7 @@ export default NextAuth({
       session.user.name = user.name;
       session.user.id = user.id;
       session.user.username = user.username;
+      session.user.isAdmin = user.isAdmin;
       return Promise.resolve(session);
     },
   },
